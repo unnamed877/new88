@@ -1,11 +1,10 @@
 #!/bin/bash
 
-cd /tmp/rom # Depends on where source got synced
-#rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
+cd /tmp/rom
 
 # Normal build
 . build/envsetup.sh
-lunch fluid_certus-userdebug
+lunch cesium_certus-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
@@ -20,13 +19,13 @@ up(){
 
 make_metalava(){
 	make api-stubs-docs
+	make hiddenapi-lists-docs
 	make system-api-stubs-docs
 	make test-api-stubs-docs
 }
 
 make_rom(){
 	make bacon -j16
-	#blissify certus
 	zip=$(up out/target/product/certus/*zip)
 	echo " "
 	echo "$zip"
@@ -37,4 +36,4 @@ make_rom(){
 
 make_metalava
 make_rom &
-sleep 120m && kill "$!"
+sleep 120m && echo "Build Completed . . ."
