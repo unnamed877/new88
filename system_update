@@ -2,6 +2,7 @@
 
 echo "Updating System . . ."
 apt-get update && apt-get --yes --force-yes upgrade
+apt-get --yes --force-yes install wget
 apt-get --yes --force-yes install wget curl git aria aria2 aria2c
 
 # set noninteractive installation
@@ -13,6 +14,11 @@ ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
 #installing repo
+mkdir ~/.bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+x ~/.bin/repo
+echo "export PATH=~/bin:$PATH" >> ~/.bashrc
+
 wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P /usr/local/sbin/
 chmod +x /usr/local/sbin/repo
 
