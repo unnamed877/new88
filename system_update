@@ -10,7 +10,7 @@ export DEBIAN_FRONTEND=noninteractive
 #install tzdata package
 apt-get install -y tzdata
 # set your timezone
-ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -fs /usr/share/zoneinfo/Asia/Makassar /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
 #installing repo
@@ -25,7 +25,7 @@ chmod +x /usr/local/sbin/repo
 repo
 
 echo "Installing some dependencies . . . . . ."
-apt-get --yes --force-yes install git-core gnupg wget curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig bc kmod neofetch htop
+apt-get --yes --force-yes install ccache git-core gnupg wget curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig bc kmod neofetch htop
 apt-get --yes --force-yes install openssh-server screen python git openjdk-8-jdk android-tools-adb bc bison
 apt-get --yes --force-yes install bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick
 apt-get --yes --force-yes install lib32ncurses-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev
