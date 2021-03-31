@@ -4,7 +4,7 @@ env: # Environt variable to pass to all tasks
     rclone_config: "ENCRYPTED[e6f6c3950fe9fe969ef2e52616d6a4df7c4ae1973bc100eff70475fda24a115e551fa8fdab1a539db02cebad11c965a7]"
 
 task:
-    name: test
+    name: new88
     timeout_in: 120m
     container:
       image: ubuntu:latest
