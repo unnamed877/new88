@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 echo "Updating System . . ."
 apt update
 apt upgrade -y
-apt install -y wget curl git aria2
+apt install -y wget curl git aria2 man-db
 
 echo "Installing Timezone . . ."
 apt install -y tzdata
