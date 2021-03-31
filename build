@@ -19,7 +19,6 @@ up(){
 
 make_metalava(){
 	make api-stubs-docs
-	make hiddenapi-lists-docs
 	make system-api-stubs-docs
 	make test-api-stubs-docs
 }
