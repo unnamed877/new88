@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Downloading previous ccache . . . . . ."
+url=https://www.unnamed877.workers.dev/ccache/ccache-rr-8.6.7-certus.tar.gz
+
+cd /tmp # Where to download cccahe
+time aria2c $url -x16 -s50
+time tar xf ccache-cesium-3.2.0-certus.tar.gz
+rm -rf ccache-cesium-3.2.0-certus.tar.gz

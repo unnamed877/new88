@@ -1,0 +1,32 @@
+#!/bin/bash
+
+MANIFEST=https://github.com/Project-Fluid/manifest.git
+BRANCH=fluid-11
+
+mkdir -p /tmp/rom
+cd /tmp/rom
+
+# Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
+repo init --no-repo-verify --depth=1 -u "$MANIFEST" -b "$BRANCH" -g default,-device,-mips,-darwin,-notdefault
+git config --global user.name unnamed877
+git config --global user.email unnamed877@protonmail.com
+
+# Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+
+# Device Tree
+git clone https://github.com/unnamed877/android_device_xiaomi_certus -b fluid/11 device/xiaomi/certus
+git clone https://github.com/wulan17/proprietary_vendor_xiaomi -b 11 vendor/xiaomi
+git clone https://gitlab.com/wulan17/prebuilts_gcc_linux-x86_arm_arm-none-linux-gnueabihf -b 9.2 prebuilts/gcc/linux-x86/arm/arm-none-linux-gnueabihf-9.2
+git clone https://github.com/wulan17/android_kernel_xiaomi_mt6765 -b 11-nad kernel/xiaomi/mt6765
+
+# For fix RIL problem in LOS Android Q based ROM
+#rm -rf packages/services/Telephony
+#git clone https://github.com/LineageOS/android_packages_services_Telephony -b lineage-17.1 packages/services/Telephony
+
+# Codec Patch maybe :p
+cd frameworks/av/
+wget -c https://github.com/SamarV-121/android_vendor_extra/blob/lineage-18.1/patches/frameworks/av/0005-Don-t-fail-AAC-decoding-if-DRC-parameter-isn-t-avail.patch
+git apply 0005-Don-t-fail-AAC-decoding-if-DRC-parameter-isn-t-avail.patch
+
+cd /tmp/rom

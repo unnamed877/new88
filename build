@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cd /tmp/rom # Depends on where source got synced
+#rm -rf .repo & # lets remove unnecessary things, so that no storage issue can occur
+
+# Normal build
+. build/envsetup.sh
+lunch fluid_certus-userdebug
+export SELINUX_IGNORE_NEVERALLOWS=true
+export CCACHE_DIR=/tmp/ccache
+export CCACHE_EXEC=$(which ccache)
+export USE_CCACHE=1
+ccache -M 50G
+ccache -o compression=true
+ccache -z
+
+up(){
+	curl --upload-file $1 https://transfer.sh/
+}
+
+make_metalava(){
+	make api-stubs-docs
+	make system-api-stubs-docs
+	make test-api-stubs-docs
+}
+
+make_rom(){
+	make bacon -j16
+	#blissify certus
+	zip=$(up out/target/product/certus/*zip)
+	echo " "
+	echo "$zip"
+	mkdir -p ~/.config/rclone
+	echo "$rclone_config" > ~/.config/rclone/rclone.conf
+	time rclone copy out/target/product/certus/*zip unnamed877:/roms -P
+}
+
+make_metalava
+make_rom &
+sleep 120m && kill "$!"

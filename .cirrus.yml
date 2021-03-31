@@ -1,0 +1,27 @@
+env: # Environt variable to pass to all tasks
+    CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
+    CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone repo
+    rclone_config: "ENCRYPTED[e6f6c3950fe9fe969ef2e52616d6a4df7c4ae1973bc100eff70475fda24a115e551fa8fdab1a539db02cebad11c965a7]"
+
+task:
+    name: test
+    timeout_in: 120m
+    container:
+      image: ubuntu:latest
+      cpu: 16
+      memory: 24G
+    system_update_script:
+      - ./system_update
+    neofetch_script:
+      - ./neofetch
+    specification_script:
+      - ./specification
+#    download_ccache_script:
+#      - ./download_ccache
+    sync_script:
+      - ./sync
+    build_script:
+      - ./build
+#    upload_ccache_script:
+#      - ./upload_ccache
+      
