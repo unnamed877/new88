@@ -4,7 +4,8 @@
 export DEBIAN_FRONTEND=noninteractive
 
 echo "Updating System . . ."
-apt update && apt upgrade -y
+apt update
+apt upgrade -y
 apt install -y wget curl git aria2
 
 echo "Installing Timezone . . ."
