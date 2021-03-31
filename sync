@@ -31,7 +31,7 @@ git am 0005-Don-t-fail-AAC-decoding-if-DRC-parameter-isn-t-avail.patch
 cd /tmp/rom
 
 # Fix Install folder gone issue
-cd build/patch
+cd build/make
 wget https://github.com/Komodo-OS-Rom/build/commit/298ea6830037c69b5299f57b6cc3aefe04ad9ae5.patch
 git am 298ea6830037c69b5299f57b6cc3aefe04ad9ae5.patch
 cd /tmp/rom
