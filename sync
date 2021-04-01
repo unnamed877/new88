@@ -26,7 +26,7 @@ git clone https://github.com/wulan17/android_kernel_xiaomi_mt6765 -b 11-nad kern
 
 # exTHmUI
 rm -rf packages/apps/Dialer
-git clone https://github.com/LineageOS/android_packages_apps_Dialer -b lineage-18.1 packages/apps/Dialer
+git clone https://github.com/unnamed877/android_packages_apps_Dialer -b lineage-18.1 packages/apps/Dialer
 
 # Codec Patch maybe :p
 cd frameworks/av
