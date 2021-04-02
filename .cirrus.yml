@@ -8,7 +8,7 @@ task:
     timeout_in: 120m
     container:
       image: ubuntu:latest
-      cpu: 16
+      cpu: 8
       memory: 24G
     system_update_script:
       - ./system_update
@@ -22,6 +22,6 @@ task:
       - ./sync
     build_script:
       - ./build
-#    upload_ccache_script:
-#      - ./upload_ccache
+    upload_ccache_script:
+      - ./upload_ccache
       
