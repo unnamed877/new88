@@ -2,6 +2,9 @@
 
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
+export USER=hisyam99
+export HOSTNAME=hisyam99
+whoami
 
 echo "Updating System . . ."
 apt update
