@@ -2,8 +2,7 @@
 
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
-groupadd -g 1000 -r hisyam99
-useradd -u 1000 --create-home -r -g hisyam99 hisyam99
+adduser --disabled-password --gecos "" hisyam99
 su - hisyam99
 whoami
 
