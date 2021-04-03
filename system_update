@@ -2,7 +2,8 @@
 
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
-useradd -u hisyam99 hisyam99 init
+groupadd -g 1000 -r hisyam99
+useradd -u 1000 --create-home -r -g hisyam99 hisyam99
 su - hisyam99
 whoami
 
