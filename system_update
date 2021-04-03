@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt install -y sudo
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 adduser --disabled-password --gecos "" hisyam99
