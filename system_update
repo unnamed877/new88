@@ -2,7 +2,7 @@
 
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
-sudo -u hisyam99 hisyam99 init
+-u hisyam99 hisyam99 init
 su - hisyam99
 whoami
 
