@@ -2,8 +2,8 @@
 
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
-export USER=hisyam99
-export HOSTNAME=hisyam99
+sudo -u hisyam99 hisyam99 init
+su - hisyam99
 whoami
 
 echo "Updating System . . ."
