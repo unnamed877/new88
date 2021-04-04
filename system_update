@@ -3,8 +3,9 @@
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 adduser --disabled-password --gecos "" unnamed877
+echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-docker-build
 usermod -aG sudo unnamed877
-su - unnamed877
+su -l unnamed877
 whoami
 
 echo "Updating System . . ."
