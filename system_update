@@ -3,9 +3,9 @@
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 export LC_ALL=C
-sudo adduser --disabled-password --gecos "" unnamed877
-sudo usermod -aG sudo unnamed877
-su - unnamed877
+adduser --disabled-password --gecos "" unnamed877
+usermod -aG sudo unnamed877
+exec su - unnamed877
 whoami
 
 echo "Updating System . . ."
