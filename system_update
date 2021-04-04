@@ -4,6 +4,7 @@ apt install -y sudo
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 adduser --disabled-password --gecos "" unnamed877
+usermod -aG sudo unnamed877
 su - unnamed877
 whoami
 
