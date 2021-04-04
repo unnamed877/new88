@@ -2,8 +2,7 @@
 
 echo "Downloading previous ccache . . . . . ."
 
-cd /tmp # Where to download cccahe
-curl https://transfer.sh/s7Uow/ccache-lineagex.tar.gz -o ccache-lineagex.tar.gz
-#time aria2c $url -x16 -s50
-time tar xf ccache-lineagex.tar.gz
-rm -rf ccache-lineagex.tar.gz
+cd /tmp
+curl https://transfer.sh/s7Uow/ccache-fluid-11.tar.gz -o ccache-fluid-11.tar.gz
+time tar xf ccache-fluid-11.tar.gz
+rm -rf ccache-fluid-11.tar.gz
