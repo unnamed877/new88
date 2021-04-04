@@ -4,34 +4,34 @@
 export DEBIAN_FRONTEND=noninteractive
 adduser --disabled-password --gecos "" unnamed877
 usermod -aG sudo unnamed877
-su unnamed877
+su - unnamed877
 whoami
 
 echo "Updating System . . ."
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y wget curl git aria2 man-db pigz
-sudo apt install -y unpigz
+apt update
+apt upgrade -y
+apt install -y wget curl git aria2 man-db pigz
+apt install -y unpigz
 
 echo "Installing Timezone . . ."
-sudo apt install -y tzdata
+apt install -y tzdata
 
 echo "Configuring Timezone . . ."
-sudo ln -fs /usr/share/zoneinfo/Asia/Makassar /etc/localtime
-sudo dpkg-reconfigure --frontend noninteractive tzdata
+ln -fs /usr/share/zoneinfo/Asia/Makassar /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
 
 echo "Installing Repo . . ."
-sudo wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P /usr/local/sbin/
-sudo chmod +x /usr/local/sbin/repo
+wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P /usr/local/sbin/
+chmod +x /usr/local/sbin/repo
 
 echo "Installing some dependencies . . . . . ."
-sudo apt install -y ccache git-core gnupg wget curl flex bison build-essential zip curl zlib1g-dev kmod neofetch
-sudo apt install -y openssh-server screen python git openjdk-8-jdk android-tools-adb bc bison libc6-dev-i386
-sudo apt install -y bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick fontconfig
-sudo apt install -y lib32ncurses-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev
-sudo apt install -y libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc
-sudo apt install -y yasm zip zlib1g-dev libtinfo5 libncurses5 gcc-multilib g++-multilib lib32ncurses5-dev
-sudo apt install -y x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
+apt install -y ccache git-core gnupg wget curl flex bison build-essential zip curl zlib1g-dev kmod neofetch
+apt install -y openssh-server screen python git openjdk-8-jdk android-tools-adb bc bison libc6-dev-i386
+apt install -y bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick fontconfig
+apt install -y lib32ncurses-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev
+apt install -y libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc
+apt install -y yasm zip zlib1g-dev libtinfo5 libncurses5 gcc-multilib g++-multilib lib32ncurses5-dev
+apt install -y x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip
 
 echo "Installing rclone . . . . . ."
 curl https://rclone.org/install.sh | bash
