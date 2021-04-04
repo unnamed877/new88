@@ -3,11 +3,8 @@
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 export LC_ALL=C
-#su
-#usermod -l unnamed ci
 sudo adduser --disabled-password --gecos "" unnamed877
 sudo usermod -aG sudo unnamed877
-#sudo -u unnamed877
 su - unnamed877
 whoami
 
