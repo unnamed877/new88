@@ -7,7 +7,7 @@ task:
     name: test88
     timeout_in: 120m
     container:
-      image: apon77/aosp:latest
+      image: ubuntu:latest
       cpu: 8
       memory: 24G
     system_update_script:
