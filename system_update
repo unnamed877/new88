@@ -3,10 +3,9 @@
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive
 export LC_ALL=C
-adduser --disabled-password --gecos "" unnamed877
-usermod -aG sudo unnamed877
-exec su - unnamed877
-whoami
+#adduser --disabled-password --gecos "" unnamed877
+#usermod -aG sudo unnamed877
+#exec su - unnamed877
 
 echo "Updating System . . ."
 apt update
