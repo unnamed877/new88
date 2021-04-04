@@ -7,8 +7,8 @@ export LC_ALL=C
 #usermod -l unnamed ci
 sudo adduser --disabled-password --gecos "" unnamed877
 sudo usermod -aG sudo unnamed877
-sudo -u unnamed877
-#su - unnamed
+#sudo -u unnamed877
+su - unnamed877
 whoami
 
 echo "Updating System . . ."
